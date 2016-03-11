@@ -1,0 +1,60 @@
+//- Custom Configuration
+block config
+  //- Setup site's base URL to match the "baseUrl" key within `package.json`
+  //- Otherwise default to relative pathing
+  - var baseUrl = config.baseUrl || './'
+
+doctype html
+
+<!--[if lt IE 9]>
+<html class='lt-ie9 no-js' lang='en'>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<html class='no-js' lang='en'>
+<!--<![endif]-->
+
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+  title cv_ue05_robert_wettstaedt
+  meta(name='description', content= 'A new Yeogurt application')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  block stylesheets
+    link(rel='stylesheet', href= baseUrl + 'styles/main.css')
+
+body
+  <!--[if lt IE 9]>
+  <p class='browsehappy'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  block content
+    .upload.upload--dir.center
+      label(for='input-dir')
+        i.glyphicon.glyphicon-floppy-open
+        br
+        | Open Picture Set
+      input#input-dir.hidden(type='file' accept='image/*' webkitdirectory directory multiple)
+
+    .upload.upload--file.hidden
+      label(for='input-file')
+        i.glyphicon.glyphicon-floppy-open
+        | Open Picture
+        img.center
+      input#input-file.hidden(type='file' accept='image/*')
+
+    .progress.hidden
+      .progress__overlay
+      .progress__info.center
+        .progress__label
+        .progress__bar
+
+    .images.container-fluid
+      .images__download
+        a(href='/images/50Objects.zip') Download example set
+      .row.images__stats
+        canvas.images__confusion.col-xs-6
+
+  block scripts
+    script(src= baseUrl + 'scripts/main.js')
+
+</html>

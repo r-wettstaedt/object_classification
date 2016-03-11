@@ -1,0 +1,43 @@
+.upload {
+    position: relative;
+
+    &--dir {
+        i {
+            font-size: 200px;
+        }
+    }
+
+    &--file {
+        top: 0;
+        height: 33vw;
+        padding: 20px;
+        text-align: right;
+
+        img {
+            height: 100%;
+            transition: opacity 200ms ease;
+        }
+
+        i {
+            font-size: 23px;
+            padding-right: 10px;
+        }
+    }
+
+    label {
+        height: 100%;
+        font-size: 26px;
+        cursor: pointer;
+        transition: color 200ms ease;
+
+        &:hover {
+            color: $ci-color;
+
+            img {
+                opacity: 0.2;
+            }
+        }
+    }
+
+
+}
